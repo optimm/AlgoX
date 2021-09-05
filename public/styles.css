@@ -1,10 +1,11 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 body {
   width: 100wh;
+  background-color: rgb(255, 255, 255);
 }
 
 .header {
@@ -12,11 +13,12 @@ body {
   height: 100px;
   width: 100wh;
   font-size: 1.5rem;
+  font-weight: lighter;
   text-align: center;
   padding-top: 30px;
 }
 .handler {
-  margin-top: 60px;
+  margin-top: 50px;
   text-align: center;
 }
 
@@ -31,7 +33,6 @@ body {
   height: 50px;
   text-align: center;
 }
-
 .speedController {
   display: flex;
   flex-direction: column;
@@ -49,15 +50,29 @@ body {
   justify-content: center;
   position: relative;
   margin: auto;
-  margin-top: 60px;
-  border-top: 7px solid rgb(139, 138, 138);
+  transform: translateX(-380px);
+  margin-top: 50px;
 }
 .bar {
-  background-color: green;
-  width: 50px;
+  width: 29px;
   height: 100px;
-  margin: 0px 15px 5px 15px;
+  background-color: rgb(81, 255, 0);
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1rem;
+
   border-radius: 3px;
+
+  position: absolute;
+}
+
+.active {
+  background-color: #ff0000;
+}
+
+.current {
+  background-color: blue;
+}
+
+.down {
+  top: 500px;
 }

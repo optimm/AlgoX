@@ -1,48 +1,36 @@
-import React, { useState } from "react";
-import Header from "./Header";
-import DeleteIcon from "@material-ui/icons/Delete";
-import AddCircleIcon from "@material-ui/icons/AddCircle";
-import { ColorLensOutlined } from "@material-ui/icons";
+import insertion from "./algorithms/insertion";
 
+import React from "react";
+import Header from "./Header";
+import { useState } from "react";
 function App() {
-  const [speed, setSpeed] = useState(600);
   let [arr, setArr] = useState([
-    "20",
-    "21",
-    "22",
-    "23",
-    "24",
-    "25",
-    "26",
-    "30",
-    "37",
-    "38",
+    { value: 19, id: 1 },
+    { value: 22, id: 2 },
+    { value: 33, id: 3 },
+    { value: 25, id: 4 },
+    { value: 37, id: 5 },
+    { value: 30, id: 6 },
+    { value: 23, id: 7 },
+    { value: 21, id: 8 },
+    { value: 31, id: 9 },
+    { value: 28, id: 10 },
+    { value: 37, id: 11 },
+    { value: 33, id: 12 },
+    { value: 19, id: 13 },
+    { value: 22, id: 14 },
+    { value: 33, id: 15 },
+    { value: 25, id: 16 },
+    { value: 37, id: 17 },
+    { value: 30, id: 18 },
+    { value: 23, id: 19 },
+    { value: 21, id: 20 },
   ]);
-  let [order, setOrder] = useState({});
   let [color, setColor] = useState([]);
 
-  function clickHandler() {
-    let arrTemp = [],
-      orderTemp = {},
-      colorTemp = [];
-    for (let i = 0; i < 10; i++) {
-      arrTemp.push(Math.floor(Math.random() * 30 + 10));
-      orderTemp[arrTemp[i]] = i;
-      colorTemp[i] = "green";
-    }
-
-    setArr([...arrTemp]);
-    setOrder(orderTemp);
-    setColor(colorTemp);
-  }
-
-  function resetColor() {
-    for (let i = 0; i < arr.length; i++) {
-      color[i] = "green";
-    }
-  }
-
+  // **************************************** bubble sort ***********************************************************
   const bubble = () => {
+    console.log("jghsvdhsvd");
     let i = 0,
       j = 0;
     let swapped = 0;
@@ -53,7 +41,7 @@ function App() {
       color[j] = "gold";
       let flag = true;
 
-      if (arr[j] > arr[j + 1]) {
+      if (j < 19 && arr[j].value > arr[j + 1].value) {
         color[j] = "red";
         color[j + 1] = "red";
         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
@@ -80,49 +68,20 @@ function App() {
 
       setArr([...arr]);
       // setOrder({ ...order });
-    }, 1000);
+    }, 200);
   };
+  // **************************************** bubble sort end ***********************************************************
 
-  const call = () => {
-    let i = 0,
-      j = 0;
-    let clr = [];
-    clr = color;
-    const sort = setInterval(() => {
-      resetColor();
-
-      if (j >= 0 && arr[j] > arr[j + 1]) {
-        clr[j] = "red";
-        order[arr[j]] = j + 2;
-        order[arr[j + 1]] = j + 1;
-
-        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
-
-        j--;
-      } else if (i >= arr.length - 1) {
-        clearInterval(sort);
-        resetColor();
-      } else {
-        i++;
-        resetColor();
-
-        j = i - 1;
-        clr[i] = "red";
-      }
-      setArr([...arr]);
-      // setOrder({ ...order });
-    }, 1000);
-  };
-
+  // **************************************** selection sort***********************************************************
   const selection = () => {
     let i = 0,
       j = 1,
       mini = 0;
-
+    console.log("hi");
     const sort = setInterval(() => {
       color[mini] = "purple";
       color[j] = "gold";
-      if (arr[j] < arr[mini]) {
+      if (j <= 19 && arr[j].value < arr[mini].value) {
         mini = j;
         j++;
       } else if (i >= arr.length - 1) {
@@ -142,41 +101,62 @@ function App() {
 
       setArr([...arr]);
       resetColor();
-    }, 400);
+    }, 600);
   };
 
+  // **************************************** selection sort end***********************************************************
+
+  const call = () => {
+    insertion(arr);
+  };
+  const bub = () => {
+    bubble(arr, color);
+  };
+
+  const randomize = () => {
+    for (let i = 0; i < 20; i++) {
+      arr[i].value = Math.floor(Math.random() * 30 + 10);
+      color[i] = "rgb(81, 255, 0)";
+    }
+    setArr([...arr]);
+  };
+  function resetColor() {
+    for (let i = 0; i < arr.length; i++) {
+      color[i] = "rgb(81, 255, 0)";
+    }
+  }
   return (
     <div>
       <Header />
       <div className="handler">
-        <button onClick={clickHandler} className="sort random">
+        <button className="sort random" onClick={randomize}>
           Randomize
         </button>
-        <button onClick={call} className="sort">
+        <button className="sort" onClick={call}>
           Insertion
         </button>
-        <button onClick={bubble} className="sort">
-          Bubble sort
+        <button className="sort" onClick={bubble}>
+          Bubble
         </button>
-        <button onClick={selection} className="sort">
+        <button className="sort" onClick={selection}>
           Selection
         </button>
       </div>
-      <div className="container">
+      <div className="container active current">
         {arr.map((item, index) => {
           return (
             <div
+              id={`id${index + 1}`}
               className="bar"
               style={{
                 backgroundColor: color[index],
-                height: item * 10,
-
-                // margin: "10px",
-                transition: "all 0.8s ease",
+                height: item.value * 10,
+                transform: `translate(${40 * index}px, ${0}px)`,
+                transition: "transform 0.3s ease",
+                transition: "all 0.3s ease",
               }}
             >
-              {" "}
-              {item}
+              {item.value}
             </div>
           );
         })}
@@ -184,5 +164,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
