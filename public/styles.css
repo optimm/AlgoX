@@ -50,13 +50,13 @@ body {
   justify-content: center;
   position: relative;
   margin: auto;
-  transform: translateX(-380px);
+  transform: translateX(-310px);
   margin-top: 50px;
 }
 .bar {
-  width: 29px;
+  width: 35px;
   height: 100px;
-  background-color: rgb(81, 255, 0);
+  background-color: skyblue;
   text-align: center;
   font-size: 1rem;
 
@@ -75,4 +75,11 @@ body {
 
 .down {
   top: 500px;
+}
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: rgb(255, 165, 0);
 }

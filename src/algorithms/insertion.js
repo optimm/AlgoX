@@ -30,7 +30,7 @@ const insertion = (arr) => {
       }
       document.querySelector(".container").children[i].classList.add("current");
     }
-  }, 500);
+  }, 100);
 };
 
 export default insertion;
