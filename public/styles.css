@@ -33,6 +33,17 @@ body {
   height: 50px;
   text-align: center;
 }
+.random {
+  background-color: aquamarine;
+  border: none;
+  font-size: 1.3rem;
+  margin: 10px 30px;
+  border-radius: 5px;
+  padding: 10px;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+}
 .speedController {
   display: flex;
   flex-direction: column;

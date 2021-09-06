@@ -23,84 +23,6 @@ function App() {
     { value: 22, id: 14 },
     { value: 33, id: 15 },
   ]);
-  let [color, setColor] = useState([]);
-  // **************************************** bubble sort ***********************************************************
-  // const bubble = () => {
-  //   console.log("jghsvdhsvd");
-  //   let i = 0,
-  //     j = 0;
-  //   let swapped = 0;
-  //   const sort = setInterval(() => {
-  //     console.log(arr);
-
-  //     resetColor();
-  //     color[j] = "gold";
-  //     let flag = true;
-
-  //     if (j < 19 && arr[j].value > arr[j + 1].value) {
-  //       color[j] = "red";
-  //       color[j + 1] = "red";
-  //       [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
-  //       swapped++;
-  //     } else if (i > arr.length - 1) {
-  //       clearInterval(sort);
-  //       resetColor();
-  //     } else if (j >= arr.length - i - 1) {
-  //       flag = false;
-  //       j = 0;
-  //       i++;
-  //       resetColor();
-  //     }
-  //     if (!flag && swapped == 0) {
-  //       clearInterval(sort);
-  //       resetColor();
-  //     }
-  //     if (!flag) {
-  //       swapped = 0;
-  //     }
-  //     if (flag) {
-  //       j++;
-  //     }
-
-  //     setArr([...arr]);
-  //     // setOrder({ ...order });
-  //   }, 200);
-  // };
-  // **************************************** bubble sort end ***********************************************************
-
-  // **************************************** selection sort***********************************************************
-  // const selection = () => {
-  //   let i = 0,
-  //     j = 1,
-  //     mini = 0;
-  //   console.log("hi");
-  //   const sort = setInterval(() => {
-  //     color[mini] = "purple";
-  //     color[j] = "gold";
-  //     if (j <= 19 && arr[j].value < arr[mini].value) {
-  //       mini = j;
-  //       j++;
-  //     } else if (i >= arr.length - 1) {
-  //       clearInterval(sort);
-  //       resetColor();
-  //     } else if (j === arr.length) {
-  //       color[mini] = "red";
-  //       color[i] = "red";
-  //       [arr[mini], arr[i]] = [arr[i], arr[mini]];
-  //       i++;
-  //       j = i + 1;
-  //       mini = i;
-  //       setArr([...arr]);
-  //     } else if (arr[j] >= arr[mini]) {
-  //       j++;
-  //     }
-
-  //     setArr([...arr]);
-  //     resetColor();
-  //   }, 600);
-  // };
-
-  // **************************************** selection sort end***********************************************************
 
   const call = () => {
     insertion(arr);
@@ -111,35 +33,28 @@ function App() {
 
   const randomize = () => {
     document.querySelectorAll(".bar").forEach((element, index) => {
+      element.classList.remove("active");
+      element.classList.remove("current");
+      element.classList.remove("green");
+      element.classList.remove("yellow");
       element.style.transform = `translate(${40 * index}px, ${0}px)`;
     });
-    document.querySelectorAll(".green").forEach((element) => {
-      element.classList.remove("green");
-    });
-    document.querySelectorAll(".yellow").forEach((element) => {
-      element.classList.remove("yellow");
-    });
+
     let a = [...arr];
     for (let i = 0; i < arr.length; i++) {
       a[i].value = Math.floor(Math.random() * 30 + 10);
       a[i].id = i + 1;
-      color[i] = "skyblue";
     }
 
     console.log(a);
     setArr(a);
   };
 
-  function resetColor() {
-    for (let i = 0; i < arr.length; i++) {
-      color[i] = "skyblue";
-    }
-  }
   return (
     <div>
       <Header />
       <div className="handler">
-        <button className="sort random" onClick={randomize}>
+        <button className="random" onClick={randomize}>
           Randomize
         </button>
         <button className="sort" onClick={call}>
