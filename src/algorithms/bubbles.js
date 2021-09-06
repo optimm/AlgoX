@@ -48,7 +48,7 @@ const bubbles = (arr) => {
     }
 
     // console.log(i);
-  }, 50);
+  }, 100);
 };
 
 export default bubbles;

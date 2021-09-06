@@ -1,4 +1,5 @@
 import insertion from "./algorithms/insertion";
+import selection from "./algorithms/selection";
 
 import bubbles from "./algorithms/bubbles";
 
@@ -24,11 +25,14 @@ function App() {
     { value: 33, id: 15 },
   ]);
 
-  const call = () => {
-    insertion(arr);
+  const select = () => {
+    selection(arr);
   };
   const bub = () => {
     bubbles(arr);
+  };
+  const insert = () => {
+    insertion(arr);
   };
 
   const randomize = () => {
@@ -38,6 +42,7 @@ function App() {
       element.classList.remove("green");
       element.classList.remove("yellow");
       element.style.transform = `translate(${40 * index}px, ${0}px)`;
+      element.classList.remove("purple");
     });
 
     let a = [...arr];
@@ -57,11 +62,14 @@ function App() {
         <button className="random" onClick={randomize}>
           Randomize
         </button>
-        <button className="sort" onClick={call}>
-          Insertion
-        </button>
         <button className="sort" onClick={bub}>
           Bubble
+        </button>
+        <button className="sort" onClick={select}>
+          Selection
+        </button>
+        <button className="sort" onClick={insert}>
+          Insertion
         </button>
         {/* <button className="sort" onClick={selection}>
           Selection

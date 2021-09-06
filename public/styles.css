@@ -77,7 +77,7 @@ body {
 }
 
 .active {
-  background-color: #ff0000;
+  background-color: blue;
 }
 
 .current {
@@ -93,4 +93,8 @@ body {
 
 .yellow {
   background-color: rgb(255, 165, 0);
+}
+
+.purple {
+  border-bottom: 30px solid red;
 }

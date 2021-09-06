@@ -10,6 +10,10 @@ const insertion = (arr) => {
     button.addEventListener("click", () => {
       clearInterval(sort);
     });
+    const bars = document.querySelectorAll(".bar");
+    for (let x = 0; x < i; x++) {
+      bars[x].classList.add("yellow");
+    }
     if (j >= 0 && arr[j].value > arr[j + 1].value) {
       if (document.querySelector(".current")) {
         document.querySelector(".current").classList.remove("current");
@@ -27,6 +31,9 @@ const insertion = (arr) => {
       [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
       j--;
     } else if (i >= arr.length - 1) {
+      for (let x = 0; x <= i; x++) {
+        bars[x].classList.add("yellow");
+      }
       clearInterval(sort);
       document.querySelectorAll(".active").forEach((element) => {
         element.classList.remove("active");
@@ -39,7 +46,7 @@ const insertion = (arr) => {
       }
       document.querySelector(".container").children[i].classList.add("current");
     }
-  }, 100);
+  }, 500);
 };
 
 export default insertion;
