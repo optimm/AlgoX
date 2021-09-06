@@ -1,6 +1,6 @@
 import React from "react";
 
-const bubbles = (arr) => {
+const bubbles = (arr, speed) => {
   console.log(arr);
   var i = 0,
     j = 0,
@@ -48,7 +48,7 @@ const bubbles = (arr) => {
     }
 
     // console.log(i);
-  }, 100);
+  }, speed);
 };
 
 export default bubbles;

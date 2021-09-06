@@ -26,16 +26,59 @@ function App() {
   ]);
 
   const select = () => {
-    selection(arr);
-  };
-  const bub = () => {
-    bubbles(arr);
-  };
-  const insert = () => {
-    insertion(arr);
+    let s = document.getElementById("speed");
+    let speed;
+    if (s.value === "slow") {
+      speed = 600;
+    } else if (s.value === "normal") {
+      speed = 300;
+    } else {
+      speed = 100;
+    }
+    change();
+
+    selection(arr, speed);
   };
 
+  const bub = () => {
+    let s = document.getElementById("speed");
+    let speed;
+    if (s.value === "slow") {
+      speed = 500;
+    } else if (s.value === "normal") {
+      speed = 200;
+    } else {
+      speed = 70;
+    }
+    change();
+    bubbles(arr, speed);
+  };
+  const insert = () => {
+    let s = document.getElementById("speed");
+    let speed;
+    if (s.value === "slow") {
+      speed = 600;
+    } else if (s.value === "normal") {
+      speed = 300;
+    } else {
+      speed = 100;
+    }
+    change();
+    insertion(arr, speed);
+  };
+
+  function change() {
+    const random = document.querySelector(".random");
+    random.innerText = "Reset";
+    random.style.backgroundColor = "black";
+    random.style.color = "white";
+  }
+
   const randomize = () => {
+    const random = document.querySelector(".random");
+    random.innerText = "Randomize";
+    random.style.backgroundColor = "aquamarine";
+    random.style.color = "black";
     document.querySelectorAll(".bar").forEach((element, index) => {
       element.classList.remove("active");
       element.classList.remove("current");
@@ -71,9 +114,28 @@ function App() {
         <button className="sort" onClick={insert}>
           Insertion
         </button>
-        {/* <button className="sort" onClick={selection}>
-          Selection
-        </button> */}
+
+        <select id="speed">
+          <option className="space" disabled>
+            &nbsp;
+          </option>
+          <option className="label speeds" disabled>
+            Speed of visualization
+          </option>
+          <option className="space" disabled>
+            &nbsp;
+          </option>
+
+          <option value="fast" className="speeds">
+            Fast
+          </option>
+          <option value="normal" className="speeds" selected>
+            Normal
+          </option>
+          <option value="slow" className="speeds">
+            Slow
+          </option>
+        </select>
       </div>
       <div className="container active current">
         {arr.map((item, index) => {

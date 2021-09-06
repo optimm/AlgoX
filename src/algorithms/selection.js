@@ -1,6 +1,6 @@
 import React from "react";
 
-const selection = (arr) => {
+const selection = (arr, speed) => {
   let i = 0,
     j = 1,
     mini = 0;
@@ -59,7 +59,7 @@ const selection = (arr) => {
     } else if (arr[j] >= arr[mini]) {
       j++;
     }
-  }, 300);
+  }, speed);
 };
 
 export default selection;

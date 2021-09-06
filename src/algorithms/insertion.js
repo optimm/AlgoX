@@ -1,6 +1,6 @@
 import React from "react";
 
-const insertion = (arr) => {
+const insertion = (arr, speed) => {
   console.log(arr);
   let i = 1,
     j = 0;
@@ -46,7 +46,7 @@ const insertion = (arr) => {
       }
       document.querySelector(".container").children[i].classList.add("current");
     }
-  }, 500);
+  }, speed);
 };
 
 export default insertion;
