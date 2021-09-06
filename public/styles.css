@@ -13,13 +13,12 @@ body {
 
   height: 80px;
   width: 100wh;
-  font-size: 1.3rem;
   font-weight: lighter;
   text-align: center;
   padding-top: 30px;
 }
 .handler {
-  margin-top: 70px;
+  margin-top: 50px;
   text-align: center;
 }
 

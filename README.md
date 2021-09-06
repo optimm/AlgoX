@@ -7,3 +7,7 @@ To setup Project in your Machine :
 Installs React and missing Node Nodules
 
 ### `npm start`
+
+# Deployed site
+
+https://visualx.netlify.app/

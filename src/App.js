@@ -10,19 +10,19 @@ function App() {
   let [arr, setArr] = useState([
     { value: 19, id: 1 },
     { value: 22, id: 2 },
-    { value: 33, id: 3 },
+    { value: 29, id: 3 },
     { value: 25, id: 4 },
-    { value: 37, id: 5 },
+    { value: 27, id: 5 },
     { value: 30, id: 6 },
     { value: 23, id: 7 },
     { value: 21, id: 8 },
     { value: 31, id: 9 },
     { value: 28, id: 10 },
-    { value: 37, id: 11 },
-    { value: 33, id: 12 },
+    { value: 21, id: 11 },
+    { value: 25, id: 12 },
     { value: 19, id: 13 },
     { value: 22, id: 14 },
-    { value: 33, id: 15 },
+    { value: 23, id: 15 },
   ]);
 
   const select = () => {
@@ -90,7 +90,7 @@ function App() {
 
     let a = [...arr];
     for (let i = 0; i < arr.length; i++) {
-      a[i].value = Math.floor(Math.random() * 30 + 10);
+      a[i].value = Math.floor(Math.random() * 25 + 10);
       a[i].id = i + 1;
     }
 
