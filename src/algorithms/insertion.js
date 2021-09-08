@@ -1,5 +1,5 @@
 import React from "react";
-
+//insertion sort
 const insertion = (arr, speed) => {
   console.log(arr);
   let i = 1,
