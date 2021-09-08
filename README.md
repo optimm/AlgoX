@@ -24,3 +24,8 @@ You will also see any lint errors in the console.
 ## Deployed site
 
 ### https://visualx.netlify.app/
+### &nbsp;
+## Project members
+- Ayush saxena (me)
+- Brijmohan siyag  https://github.com/brijsiyag
+
