@@ -1,17 +1,13 @@
 # AlgoX
 
-- AlgoX is an algorithm visualizer application built in react js
+- AlgoX is an algorithm visualizer application built in react js 
 - At present it contains sorting algorithms
-
 ### &nbsp;
-
 ## Running on your system
-
-- Clone or download the repository
-  ` git clone https://github.com/optimm/visualiser.git`
+- Clone or download the repository 
+``` git clone https://github.com/optimm/visualiser.git```
 - Make sure node is installed on your system &nbsp;&nbsp;&nbsp; https://nodejs.org/en/
 - In the project directory, you can run:
-
 ### `npm install`
 
 Installs React and missing Node Nodules
@@ -25,7 +21,10 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ### &nbsp;
-
 ## Deployed site
 
 ### https://visualx.netlify.app/
+### &nbsp;
+## Project members
+- Ayush saxena (me)
+- Brijmohan siyag  https://github.com/brijsiyag
