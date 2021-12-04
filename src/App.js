@@ -109,7 +109,7 @@ function App() {
           Bubble
         </button>
         <button className="sort" onClick={select}>
-          Selection
+          Selectionm
         </button>
         <button className="sort" onClick={insert}>
           Insertion
