@@ -1,0 +1,121 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+  width: 100wh;
+  background-color: rgb(255, 255, 255);
+}
+
+.header {
+  background-color: rgb(207, 248, 145);
+
+  height: 80px;
+  width: 100wh;
+  font-weight: lighter;
+  text-align: center;
+  padding-top: 30px;
+}
+.handler {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.sort {
+  background-color: aquamarine;
+  border: none;
+  font-size: 1.3rem;
+  margin: 10px 30px;
+  border-radius: 5px;
+  padding: 10px;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+}
+.random {
+  background-color: aquamarine;
+  border: none;
+  font-size: 1.3rem;
+  margin: 10px 30px;
+  border-radius: 5px;
+  padding: 10px;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  transition: "all 0.3s ease";
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-flow: row;
+  width: fit-content;
+  height: fit-content;
+  justify-content: center;
+  position: relative;
+  margin: auto;
+  transform: translateX(-310px);
+  margin-top: 50px;
+}
+.bar {
+  width: 35px;
+  height: 100px;
+
+  text-align: center;
+  font-size: 1rem;
+  background-color: black;
+  color: white;
+  border-radius: 3px;
+
+  position: absolute;
+}
+
+.active {
+  background-color: rgb(0, 183, 255);
+  color: black;
+}
+
+.current {
+  background-color: rgb(0, 183, 255);
+  color: black;
+}
+
+.down {
+  top: 500px;
+}
+.green {
+  background-color: rgb(155, 241, 24);
+  color: black;
+}
+
+.yellow {
+  background-color: rgb(255, 183, 0);
+  color: black;
+}
+
+.purple {
+  border-bottom: 30px solid red;
+}
+.speeds {
+  background-color: white;
+}
+.space {
+  font-size: 0.3rem;
+  background-color: rgb(236, 232, 232);
+}
+#speed {
+  background-color: aquamarine;
+  border: none;
+  font-size: 1.3rem;
+  margin: 10px 30px;
+  border-radius: 5px;
+  padding: 10px;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+}
+.label {
+  background-color: rgb(236, 232, 232);
+}
