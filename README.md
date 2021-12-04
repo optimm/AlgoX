@@ -23,7 +23,7 @@ You will also see any lint errors in the console.
 ### &nbsp;
 ## Deployed site
 
-### https://visualx.netlify.app/
+### https://algox.netlify.app/
 ### &nbsp;
 ## Project members
 - Ayush saxena (me)
