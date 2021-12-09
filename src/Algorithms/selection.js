@@ -1,15 +1,13 @@
-import React from "react";
 
-const selection = (arr, speed) => {
+
+const selection = async (getArr, speed, setIsDisabled) => {
+  var getArrVals = await getArr();
+  var arr = [...getArrVals];
   let i = 0,
     j = 1,
     mini = 0;
 
   const sort = setInterval(() => {
-    const button = document.querySelector(".random");
-    button.addEventListener("click", () => {
-      clearInterval(sort);
-    });
     document.querySelectorAll(".green").forEach((element) => {
       element.classList.remove("green");
     });

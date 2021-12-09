@@ -1,15 +1,10 @@
-import React from "react";
-
-const bubbles = (arr, speed) => {
-  console.log(arr);
+const Insertion_sort = async (getArr, speed, setIsDisabled) => {
+  var getArrVals = await getArr();
+  var arr = [...getArrVals];
   var i = 0,
     j = 0,
     flag = true;
   const sort = setInterval(() => {
-    const button = document.querySelector(".random");
-    button.addEventListener("click", () => {
-      clearInterval(sort);
-    });
     if (flag) {
       document.querySelectorAll(".green").forEach((element) => {
         element.classList.remove("green");
@@ -30,7 +25,7 @@ const bubbles = (arr, speed) => {
         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
       }
       j++;
-      if (j != arr.length - i - 1) {
+      if (j !== arr.length - i - 1) {
         flag = true;
       }
     } else if (i >= arr.length) {
@@ -51,4 +46,4 @@ const bubbles = (arr, speed) => {
   }, speed);
 };
 
-export default bubbles;
+export default Insertion_sort;

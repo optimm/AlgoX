@@ -1,0 +1,24 @@
+.array-input-container {
+  position: relative;
+}
+
+.array-input {
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  width: 80%;
+  height: fit-content;
+  outline: none;
+  padding: 7px 12px;
+  border: none;
+  border-radius: 4px;
+  margin-top: 20px;
+  max-width: 90%;
+}
+.input-array-btn {
+  margin: 5px auto !important;
+}
+.array-input-label {
+  margin-right: auto;
+  position: absolute;
+}

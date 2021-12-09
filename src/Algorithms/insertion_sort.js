@@ -1,15 +1,11 @@
-import React from "react";
-//insertion sort
-const insertion = (arr, speed) => {
+const insertion_sort = async (getArr, speed, setIsDisabled) => {
+  var getArrVals = await getArr();
+  var arr = [...getArrVals];
   console.log(arr);
   let i = 1,
     j = 0;
 
   const sort = setInterval(() => {
-    const button = document.querySelector(".random");
-    button.addEventListener("click", () => {
-      clearInterval(sort);
-    });
     const bars = document.querySelectorAll(".bar");
     for (let x = 0; x < i; x++) {
       bars[x].classList.add("yellow");
@@ -49,4 +45,4 @@ const insertion = (arr, speed) => {
   }, speed);
 };
 
-export default insertion;
+export default insertion_sort;

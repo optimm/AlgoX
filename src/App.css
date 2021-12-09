@@ -1,0 +1,33 @@
+:root {
+  --sidebar_background: #222831;
+  --white: #ffffff;
+  --body_background: #393e46;
+}
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  color: white;
+}
+body {
+  width: 100wh;
+  text-align: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar-body-container {
+  display: flex;
+}
+
+.header {
+  background-color: antiquewhite;
+  width: 100wh;
+  font-size: 3rem;
+  text-align: left;
+  display: flex;
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
