@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/AlgoX/static/css/main.ebccdc30.chunk.css",
+    "main.js": "/AlgoX/static/js/main.062338e4.chunk.js",
+    "main.js.map": "/AlgoX/static/js/main.062338e4.chunk.js.map",
+    "runtime-main.js": "/AlgoX/static/js/runtime-main.6521253e.js",
+    "runtime-main.js.map": "/AlgoX/static/js/runtime-main.6521253e.js.map",
+    "static/js/2.202fa16c.chunk.js": "/AlgoX/static/js/2.202fa16c.chunk.js",
+    "static/js/2.202fa16c.chunk.js.map": "/AlgoX/static/js/2.202fa16c.chunk.js.map",
+    "index.html": "/AlgoX/index.html",
+    "static/css/main.ebccdc30.chunk.css.map": "/AlgoX/static/css/main.ebccdc30.chunk.css.map",
+    "static/js/2.202fa16c.chunk.js.LICENSE.txt": "/AlgoX/static/js/2.202fa16c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6521253e.js",
+    "static/js/2.202fa16c.chunk.js",
+    "static/css/main.ebccdc30.chunk.css",
+    "static/js/main.062338e4.chunk.js"
+  ]
+}
