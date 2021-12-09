@@ -35,7 +35,6 @@ export const counterSlice = createSlice({
           }px, ${0}px)`;
           element.classList.remove("green");
           element.classList.remove("yellow");
-          element.innerHTML = action.payload[i];
         }
       }
       return {
@@ -64,7 +63,6 @@ export const counterSlice = createSlice({
           }px, ${0}px)`;
           element.classList.remove("green");
           element.classList.remove("yellow");
-          element.innerHTML = tempArr[i].value;
         }
       }
       return {

@@ -11,6 +11,7 @@ const insertion_sort = async (getArr, speed, setIsDisabled) => {
       bars[x].classList.add("yellow");
     }
     if (j >= 0 && arr[j].value > arr[j + 1].value) {
+      console.log(arr[j].value, arr[j + 1].value);
       if (document.querySelector(".current")) {
         document.querySelector(".current").classList.remove("current");
       }
@@ -27,9 +28,16 @@ const insertion_sort = async (getArr, speed, setIsDisabled) => {
       [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
       j--;
     } else if (i >= arr.length - 1) {
-      for (let x = 0; x <= i; x++) {
+      console.log(i, "hello", arr[i]);
+      let flag = false;
+      for (let x = 0; x <= arr.length - 1; x++) {
+        if (document.querySelector(".current")) {
+          document.querySelector(".current").classList.remove("current");
+        }
         bars[x].classList.add("yellow");
+        flag = true;
       }
+      console.log(flag);
       clearInterval(sort);
       document.querySelectorAll(".active").forEach((element) => {
         element.classList.remove("active");

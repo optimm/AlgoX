@@ -1,5 +1,3 @@
-
-
 const selection = async (getArr, speed, setIsDisabled) => {
   var getArrVals = await getArr();
   var arr = [...getArrVals];
@@ -14,7 +12,7 @@ const selection = async (getArr, speed, setIsDisabled) => {
     if (document.querySelector(".active")) {
       document.querySelector(".active").classList.remove("active");
     }
-    if (j < 15) {
+    if (j < arr.length) {
       let active = document.querySelector(`#id${arr[j].id}`);
 
       active.classList.add("active");
@@ -26,7 +24,7 @@ const selection = async (getArr, speed, setIsDisabled) => {
     let minimum = document.querySelector(`#id${arr[mini].id}`);
     minimum.classList.add("purple");
 
-    if (j <= 14 && arr[j].value < arr[mini].value) {
+    if (j <= arr.length - 1 && arr[j].value < arr[mini].value) {
       mini = j;
       j++;
     } else if (i >= arr.length - 1) {

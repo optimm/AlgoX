@@ -30,7 +30,9 @@ function Body() {
                     }px, ${0}px)`,
                     transition: `transform ${speed / 1500}s ease`,
                   }}
-                ></div>
+                >
+                  {item.value}
+                </div>
               );
             })}
           </div>

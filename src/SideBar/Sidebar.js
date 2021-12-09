@@ -11,9 +11,9 @@ const Sidebar = () => {
         <div className="sort-btns-container">
           <Buttons />
         </div>
-        <div>
+        {/* <div>
           <ArrayInput />
-        </div>
+        </div> */}
         <div className="sliders-container">
           <Sliders />
         </div>
