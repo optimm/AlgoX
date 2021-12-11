@@ -5,6 +5,10 @@ const Insertion_sort = async (getArr, speed, setIsDisabled) => {
     j = 0,
     flag = true;
   const sort = setInterval(() => {
+    const button = document.querySelector(".random");
+    button.addEventListener("click", () => {
+      clearInterval(sort);
+    });
     if (flag) {
       document.querySelectorAll(".green").forEach((element) => {
         element.classList.remove("green");

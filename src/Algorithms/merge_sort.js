@@ -45,6 +45,10 @@ async function merge(arr, l, m, r, speed) {
   console.log(posArr, "POS ARR");
   await new Promise((resolve) => {
     const innerInterval = setInterval(() => {
+      const button = document.querySelector(".random");
+      button.addEventListener("click", () => {
+        clearInterval(innerInterval);
+      });
       if (k <= r) {
         // let first = document.querySelector(`#id${arr[k].id}`);
         let second = document.querySelector(`#id${strr[k - l].id}`);
@@ -72,7 +76,10 @@ const merge_sort = async (getArr, speed, setIsDisabled) => {
   var getArrVals = await getArr();
   var arr = [...getArrVals];
   console.log(arr, "Extracted..");
-  // await merge(arr, 0, 2, 5, speed);
+  // const button = document.querySelector(".random");
+  // button.addEventListener("click", () => {
+  //   clearInterval(innerInterval);
+  // });
   var recArr = [];
   const mergeSort = async (arr, l, r, speed) => {
     if (l >= r) {

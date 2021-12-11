@@ -6,6 +6,10 @@ const selection = async (getArr, speed, setIsDisabled) => {
     mini = 0;
 
   const sort = setInterval(() => {
+    const button = document.querySelector(".random");
+    button.addEventListener("click", () => {
+      clearInterval(sort);
+    });
     document.querySelectorAll(".green").forEach((element) => {
       element.classList.remove("green");
     });

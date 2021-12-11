@@ -2,7 +2,6 @@ import React from "react";
 import Buttons from "./Buttons/Buttons";
 import Sliders from "./Sliders/Sliders";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import ArrayInput from "./Input/ArrayInput";
 import "./Sidebar.css";
 const Sidebar = () => {
   return (

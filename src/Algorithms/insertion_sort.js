@@ -6,6 +6,10 @@ const insertion_sort = async (getArr, speed, setIsDisabled) => {
     j = 0;
 
   const sort = setInterval(() => {
+    const button = document.querySelector(".random");
+    button.addEventListener("click", () => {
+      clearInterval(sort);
+    });
     const bars = document.querySelectorAll(".bar");
     for (let x = 0; x < i; x++) {
       bars[x].classList.add("yellow");

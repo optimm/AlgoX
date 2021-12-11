@@ -35,13 +35,34 @@ export default function SplitButton() {
   const setDisabled = (val) => {
     dispatch(setIsDisabled(val));
   };
+  const randomize = () => {
+    const random = document.querySelector(".random");
+    random.style.backgroundColor = "#1976d2";
+    // random.style.color = "black";
+    random.innerText = "Generate New Array";
+    document.querySelectorAll(".bar").forEach((element, index) => {
+      element.classList.remove("active");
+      element.classList.remove("current");
+      element.classList.remove("green");
+      element.classList.remove("yellow");
+      element.style.transform = `translate(${40 * index}px, ${0}px)`;
+      element.classList.remove("purple");
+    });
+    setDisabled(false);
+    dispatch(arrGenerator());
+  };
+  function change() {
+    const random = document.querySelector(".random");
+    random.innerText = "Reset";
+    random.style.backgroundColor = "black";
+    random.style.color = "white";
+  }
 
   const getArr = async () => {
     return await arr;
   };
   const handleClick = async () => {
-    // const sarr = [];
-    // console.log(sarr, "SARR");
+    change();
     selectedIndex === 0 && Insertion_sort(getArr, speed, setDisabled);
     selectedIndex === 1 && Bubble_sort(getArr, speed, setDisabled);
     selectedIndex === 2 && Selection_sort(getArr, speed, setDisabled);
@@ -135,12 +156,10 @@ export default function SplitButton() {
       </div>
       <div className="generate-new-array-btn-container">
         <Button
-          onClick={() => {
-            dispatch(arrGenerator());
-          }}
-          disabled={isDisabled}
+          onClick={randomize}
           color="primary"
           variant="contained"
+          className="random"
         >
           Generate New Array
         </Button>
