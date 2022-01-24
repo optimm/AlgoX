@@ -11,7 +11,7 @@ function Body() {
   });
   useEffect(() => {
     dispatch(arrGenerator());
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <>
       <div className="body-main-container">
