@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import "./ArrayInput.css";
 import { useDispatch, useSelector } from "react-redux";
-import { setArr, setSize } from "../../features/SortingSlice";
+import { setArr } from "../../features/SortingSlice";
 const ArrayInput = () => {
   const dispatch = useDispatch();
   let { arr, isDisabled } = useSelector((state) => {
