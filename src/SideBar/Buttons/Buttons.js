@@ -156,7 +156,7 @@ export default function SplitButton() {
           Generate New Array
         </Button>
         <Button
-          style={{ color: "white" }}
+          style={{ color: "white", marginLeft: 10 }}
           onClick={() => {
             console.log("Clicked....");
           }}
