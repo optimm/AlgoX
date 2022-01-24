@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/AlgoX/static/css/main.8cea1826.chunk.css",
-    "main.js": "/AlgoX/static/js/main.a91f30e8.chunk.js",
-    "main.js.map": "/AlgoX/static/js/main.a91f30e8.chunk.js.map",
-    "runtime-main.js": "/AlgoX/static/js/runtime-main.6521253e.js",
-    "runtime-main.js.map": "/AlgoX/static/js/runtime-main.6521253e.js.map",
-    "static/js/2.95d4a488.chunk.js": "/AlgoX/static/js/2.95d4a488.chunk.js",
-    "static/js/2.95d4a488.chunk.js.map": "/AlgoX/static/js/2.95d4a488.chunk.js.map",
-    "index.html": "/AlgoX/index.html",
-    "static/css/main.8cea1826.chunk.css.map": "/AlgoX/static/css/main.8cea1826.chunk.css.map",
-    "static/js/2.95d4a488.chunk.js.LICENSE.txt": "/AlgoX/static/js/2.95d4a488.chunk.js.LICENSE.txt"
+    "main.css": "/optimm/AlgoX/static/css/main.8cea1826.chunk.css",
+    "main.js": "/optimm/AlgoX/static/js/main.a91f30e8.chunk.js",
+    "main.js.map": "/optimm/AlgoX/static/js/main.a91f30e8.chunk.js.map",
+    "runtime-main.js": "/optimm/AlgoX/static/js/runtime-main.4db8f2dc.js",
+    "runtime-main.js.map": "/optimm/AlgoX/static/js/runtime-main.4db8f2dc.js.map",
+    "static/js/2.95d4a488.chunk.js": "/optimm/AlgoX/static/js/2.95d4a488.chunk.js",
+    "static/js/2.95d4a488.chunk.js.map": "/optimm/AlgoX/static/js/2.95d4a488.chunk.js.map",
+    "index.html": "/optimm/AlgoX/index.html",
+    "static/css/main.8cea1826.chunk.css.map": "/optimm/AlgoX/static/css/main.8cea1826.chunk.css.map",
+    "static/js/2.95d4a488.chunk.js.LICENSE.txt": "/optimm/AlgoX/static/js/2.95d4a488.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.6521253e.js",
+    "static/js/runtime-main.4db8f2dc.js",
     "static/js/2.95d4a488.chunk.js",
     "static/css/main.8cea1826.chunk.css",
     "static/js/main.a91f30e8.chunk.js"
