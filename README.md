@@ -28,7 +28,7 @@ You will also see any lint errors in the console.
 
 ## Deployed site
 
-### https://optimm.github.io/AlgoX/
+### 
 
 ### &nbsp;
 
