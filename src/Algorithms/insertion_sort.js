@@ -1,60 +1,45 @@
-const insertion_sort = async (getArr, speed, setIsDisabled) => {
-  var getArrVals = await getArr();
-  var arr = [...getArrVals];
-  console.log(arr);
-  let i = 1,
-    j = 0;
+var running = true;
 
-  const sort = setInterval(() => {
-    const button = document.querySelector(".random");
-    button.addEventListener("click", () => {
-      clearInterval(sort);
+const insertion_sort = async (arr, speed, setIsDisabled) => {
+  return await new Promise((resolve, reject) => {
+    document.querySelector(".stop-btn").addEventListener("click", () => {
+      running = false;
     });
-    const bars = document.querySelectorAll(".bar");
-    for (let x = 0; x < i; x++) {
-      bars[x].classList.add("yellow");
-    }
-    if (j >= 0 && arr[j].value > arr[j + 1].value) {
-      console.log(arr[j].value, arr[j + 1].value);
-      if (document.querySelector(".current")) {
-        document.querySelector(".current").classList.remove("current");
+    console.log(arr);
+    let i = 1,
+      j = 0;
+    document.querySelector(`#id2`).classList.add("green");
+    const intervalProp = setInterval(() => {
+      if (!running) {
+        clearInterval(intervalProp);
+        resolve(true);
+        setIsDisabled(false);
+        running = true;
       }
-      document.querySelectorAll(".active").forEach((element) => {
-        element.classList.remove("active");
-      });
-      let first = document.querySelector(`#id${arr[j].id}`);
-      let second = document.querySelector(`#id${arr[j + 1].id}`);
-      second.classList.add("active");
-      [first.style.transform, second.style.transform] = [
-        second.style.transform,
-        first.style.transform,
-      ];
-      [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
-      j--;
-    } else if (i >= arr.length - 1) {
-      console.log(i, "hello", arr[i]);
-      let flag = false;
-      for (let x = 0; x <= arr.length - 1; x++) {
-        if (document.querySelector(".current")) {
-          document.querySelector(".current").classList.remove("current");
-        }
-        bars[x].classList.add("yellow");
-        flag = true;
+      if (j >= 0 && arr[j].value > arr[j + 1].value) {
+        let first = document.querySelector(`#id${arr[j].id}`);
+        let second = document.querySelector(`#id${arr[j + 1].id}`);
+        [first.style.transform, second.style.transform] = [
+          second.style.transform,
+          first.style.transform,
+        ];
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        j--;
+      } else if (i >= arr.length - 1) {
+        resolve(true);
+        clearInterval(intervalProp);
+        setIsDisabled(false);
+      } else {
+        document.querySelectorAll(".green").forEach((element) => {
+          element.classList.remove("green");
+        });
+        i++;
+        j = i - 1;
+        document.querySelector(`#id${i + 1}`).classList.add("green");
       }
-      console.log(flag);
-      clearInterval(sort);
-      document.querySelectorAll(".active").forEach((element) => {
-        element.classList.remove("active");
-      });
-    } else {
-      i++;
-      j = i - 1;
-      if (document.querySelector(".current")) {
-        document.querySelector(".current").classList.remove("current");
-      }
-      document.querySelector(".container").children[i].classList.add("current");
-    }
-  }, speed);
+      console.log(arr);
+    }, speed);
+  });
 };
 
 export default insertion_sort;

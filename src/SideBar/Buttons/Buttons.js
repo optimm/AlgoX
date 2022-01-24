@@ -11,10 +11,15 @@ import MenuList from "@mui/material/MenuList";
 import Insertion_sort from "../../Algorithms/insertion_sort";
 import Bubble_sort from "../../Algorithms/Bubble_sort";
 import Selection_sort from "../../Algorithms/selection";
-
 import Merge_sort from "../../Algorithms/merge_sort";
+import Quick_sort from "../../Algorithms/quick_sort";
 import { useSelector, useDispatch } from "react-redux";
-import { setIsDisabled, arrGenerator } from "../../features/SortingSlice";
+import {
+  setIsDisabled,
+  arrGenerator,
+  setArr,
+  setAlgo,
+} from "../../features/SortingSlice";
 import "./Buttons.css";
 const options = [
   "Insertion Sort",
@@ -26,52 +31,33 @@ const options = [
 
 export default function SplitButton() {
   const dispatch = useDispatch();
-  const { arr, speed, isDisabled } = useSelector((state) => {
+  const { arr, speed, isDisabled, pivot, algo } = useSelector((state) => {
     return state.sortingVisualizer;
   });
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
-  const [selectedIndex, setSelectedIndex] = React.useState(3);
   const setDisabled = (val) => {
     dispatch(setIsDisabled(val));
   };
-  const randomize = () => {
-    const random = document.querySelector(".random");
-    random.style.backgroundColor = "#1976d2";
-    // random.style.color = "black";
-    random.innerText = "Generate New Array";
-    document.querySelectorAll(".bar").forEach((element, index) => {
-      element.classList.remove("active");
-      element.classList.remove("current");
-      element.classList.remove("green");
-      element.classList.remove("yellow");
-      element.style.transform = `translate(${40 * index}px, ${0}px)`;
-      element.classList.remove("purple");
-    });
-    setDisabled(false);
-    dispatch(arrGenerator());
-  };
-  function change() {
-    const random = document.querySelector(".random");
-    random.innerText = "Reset";
-    random.style.backgroundColor = "black";
-    random.style.color = "white";
-  }
-
-  const getArr = async () => {
-    return await arr;
-  };
   const handleClick = async () => {
-    change();
-    selectedIndex === 0 && Insertion_sort(getArr, speed, setDisabled);
-    selectedIndex === 1 && Bubble_sort(getArr, speed, setDisabled);
-    selectedIndex === 2 && Selection_sort(getArr, speed, setDisabled);
-    selectedIndex === 3 && Merge_sort(getArr, speed, setDisabled);
     setDisabled(true);
+    algo === 0 && (await Insertion_sort([...arr], speed, setDisabled));
+    algo === 1 && (await Bubble_sort([...arr], speed, setDisabled));
+    algo === 2 && (await Selection_sort([...arr], speed, setDisabled));
+    algo === 3 && (await Merge_sort([...arr], speed, setDisabled));
+    algo === 4 && (await Quick_sort([...arr], speed, setDisabled, pivot));
+    let arrCopy = [...arr];
+    let tempArr = [];
+    arrCopy.forEach((element) => {
+      tempArr.push(element.value);
+    });
+    tempArr.sort();
+    console.log(tempArr);
+    dispatch(setArr(tempArr));
   };
 
   const handleMenuItemClick = (event, index) => {
-    setSelectedIndex(index);
+    dispatch(setAlgo(index));
     setOpen(false);
   };
 
@@ -96,11 +82,14 @@ export default function SplitButton() {
           aria-label="split button"
         >
           <Button
-            style={{ color: isDisabled ? "white" : "black" }}
+            style={{
+              color: isDisabled ? "white" : "black",
+              border: isDisabled && "1px solid white",
+            }}
             onClick={handleClick}
             disabled={isDisabled}
           >
-            {options[selectedIndex]}
+            {options[algo]}
           </Button>
           <Button
             color="success"
@@ -109,6 +98,7 @@ export default function SplitButton() {
             aria-expanded={open ? "true" : undefined}
             aria-label="select merge strategy"
             aria-haspopup="menu"
+            style={{ color: "white", border: isDisabled && "1px solid white" }}
             onClick={handleToggle}
             disabled={isDisabled}
           >
@@ -138,10 +128,9 @@ export default function SplitButton() {
                       <MenuItem
                         key={option}
                         style={{
-                          backgroundColor:
-                            index === selectedIndex ? "#2e7d32" : "",
+                          backgroundColor: index === algo ? "#2e7d32" : "",
                         }}
-                        selected={index === selectedIndex}
+                        selected={index === algo}
                         onClick={(event) => handleMenuItemClick(event, index)}
                       >
                         {option}
@@ -156,12 +145,26 @@ export default function SplitButton() {
       </div>
       <div className="generate-new-array-btn-container">
         <Button
-          onClick={randomize}
+          onClick={() => {
+            dispatch(arrGenerator());
+          }}
+          disabled={isDisabled}
+          style={{ color: "white", border: isDisabled && "1px solid white" }}
           color="primary"
           variant="contained"
-          className="random"
         >
           Generate New Array
+        </Button>
+        <Button
+          style={{ color: "white" }}
+          onClick={() => {
+            console.log("Clicked....");
+          }}
+          color="primary"
+          variant="contained"
+          className="stop-btn"
+        >
+          Stop
         </Button>
       </div>
     </>

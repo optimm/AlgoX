@@ -5,6 +5,12 @@
   flex-basis: 70%;
   justify-content: center;
   align-items: flex-end;
+  position: relative;
+}
+.body-controller-container {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .bars-container {
@@ -19,7 +25,7 @@
 }
 .bar {
   height: 100px;
-  background-color: black;
+  background-color: rgb(0, 225, 255);
   font-size: 2rem;
   font-weight: bold;
   border-radius: 3px 3px 0 0;
@@ -29,31 +35,33 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  color: white;
+  color: black;
 }
-.red {
-  background-color: #ff0000;
+.barcount {
+  color: black;
+}
+.bar:hover .barcount {
+  font-size: 2rem !important;
+  color: white;
+  transform: translateY(2rem);
 }
 
 .blue {
-  background-color: blue;
+  background-color: rgb(0, 174, 255);
 }
 
 .green {
   background-color: green;
 }
-.purple {
-  border-top: 30px solid red;
+
+.red {
+  background-color: #ff0000;
 }
+
 .yellow {
   background-color: rgb(255, 165, 0);
 }
-.active {
-  background-color: rgb(0, 183, 255);
-  color: black;
-}
 
-.current {
-  background-color: rgb(0, 183, 255);
-  color: black;
+.purple {
+  background-color: purple;
 }

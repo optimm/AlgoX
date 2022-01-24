@@ -2,20 +2,24 @@ import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { arrGenerator } from "../features/SortingSlice";
+import QuickSortPivot from "./BodyParts/QuickSortPivot";
 import "./Body.css";
 function Body() {
   const dispatch = useDispatch();
-  const { size, arr, speed } = useSelector((state) => {
+  const { size, arr, speed, algo } = useSelector((state) => {
     return state.sortingVisualizer;
   });
   useEffect(() => {
     dispatch(arrGenerator());
-  }, [size]);
+  }, []);
   return (
     <>
       <div className="body-main-container">
+        <div className="body-controller-container">
+          {algo === 4 && <QuickSortPivot />}
+        </div>
         <div className="bars-container">
-          <div className="container red blue active current">
+          <div className="container red blue">
             {arr.map((item, index) => {
               return (
                 <div
@@ -23,7 +27,6 @@ function Body() {
                   className="bar"
                   style={{
                     width: 500 / size + "px",
-                    fontSize: 300 / size + "px",
                     height: item.value * 4,
                     transform: `translate(${
                       (600 / size + 5) * index
@@ -31,7 +34,12 @@ function Body() {
                     transition: `transform ${speed / 1500}s ease`,
                   }}
                 >
-                  {item.value}
+                  <span
+                    style={{ fontSize: `min(${300 / size}px, 2rem)` }}
+                    className="barcount"
+                  >
+                    {item.value}
+                  </span>
                 </div>
               );
             })}

@@ -1,0 +1,22 @@
+.quick-sort-pivot-body {
+  background-color: rgba(0, 119, 99, 0.459);
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.quick-sort-pivot-heading {
+  margin-bottom: 10px;
+}
+
+.quick-sort-pivot-checkbox-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.3fr 0.3fr;
+  /* gap: 0px 0px; */
+  /* grid-auto-flow: row; */
+  text-align: left;
+}
+
+.quick-sort-pivot-checkbox {
+  text-align: left;
+}

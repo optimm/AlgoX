@@ -1,3 +1,5 @@
+var running = true;
+
 async function merge(arr, l, m, r, speed) {
   //Remove green form all
   document.querySelectorAll(".green").forEach((element) => {
@@ -39,18 +41,13 @@ async function merge(arr, l, m, r, speed) {
     var matches = regExp.exec(first.style.transform);
     posArr.push(matches[0].slice(1, matches[0].length - 1).split(",")[0]);
   }
-  console.log("L", L);
-  console.log("R", R);
-  console.log("strr", strr);
-  console.log(posArr, "POS ARR");
   await new Promise((resolve) => {
     const innerInterval = setInterval(() => {
-      const button = document.querySelector(".random");
-      button.addEventListener("click", () => {
+      if (!running) {
         clearInterval(innerInterval);
-      });
+        resolve(true);
+      }
       if (k <= r) {
-        // let first = document.querySelector(`#id${arr[k].id}`);
         let second = document.querySelector(`#id${strr[k - l].id}`);
         second.style.transform = `translate(${posArr[k - l]},-50vh)`;
         arr[k] = strr[k - l];
@@ -68,59 +65,37 @@ async function merge(arr, l, m, r, speed) {
         resolve(true);
       }
     }, speed);
-    console.log("Innner done...");
   });
 }
 
-const merge_sort = async (getArr, speed, setIsDisabled) => {
-  var getArrVals = await getArr();
-  var arr = [...getArrVals];
-  console.log(arr, "Extracted..");
-  // const button = document.querySelector(".random");
-  // button.addEventListener("click", () => {
-  //   clearInterval(innerInterval);
-  // });
-  var recArr = [];
-  const mergeSort = async (arr, l, r, speed) => {
-    if (l >= r) {
-      console.log("Returned....");
-      return;
+const merge_sort = async (arr, speed, setIsDisabled) => {
+  return new Promise(async (resolve, reject) => {
+    document.querySelector(".stop-btn").addEventListener("click", () => {
+      running = false;
+    });
+    var recArr = [];
+    const mergeSort = async (l, r) => {
+      if (l >= r) {
+        return;
+      }
+      var m = l + parseInt((r - l) / 2);
+      await mergeSort(l, m);
+      await mergeSort(m + 1, r);
+      recArr.push([l, m, r]);
+    };
+    await mergeSort(0, arr.length - 1);
+    for (let i = 0; i < recArr.length; i++) {
+      const element = recArr[i];
+      await merge(arr, element[0], element[1], element[2], speed);
+      if (!running) {
+        resolve(true);
+        setIsDisabled(false);
+        running = true;
+        break;
+      }
     }
-    var m = l + parseInt((r - l) / 2);
-    await mergeSort(arr, l, m, speed);
-    await mergeSort(arr, m + 1, r, speed);
-    recArr.push([l, m, r]);
-  };
-  await mergeSort(arr, 0, arr.length - 1, speed);
-  console.log(recArr);
-  for (let i = 0; i < recArr.length; i++) {
-    const element = recArr[i];
-    await merge(arr, element[0], element[1], element[2], speed);
-  }
-  document.querySelectorAll(".green").forEach((element) => {
-    element.classList.add("yellow");
+    setIsDisabled(false);
   });
-  setIsDisabled(false);
-  ////////////////////////////////////////////////////////////////////////////////////////////////
-  //   let curRec = 0;
-  //   const intervalProp = setIntervalAsync(async () => {
-  //     await new Promise(async (resolve) => {
-  //       console.log(curRec, recursionOrder.length);
-  //       if (curRec === recursionOrder.length) {
-  //         clearInterval(intervalProp);
-  //         setIsDisabled(false);
-  //       } else {
-  //         console.log("Fifth Step");
-  //         await merge(
-  //           recursionOrder[curRec][0],
-  //           recursionOrder[curRec][1],
-  //           recursionOrder[curRec][2]
-  //         );
-  //         console.log("Bottom of the await");
-  //         resolve(curRec++);
-  //       }
-  //     });
-  //   }, 100);
 };
 
 export default merge_sort;

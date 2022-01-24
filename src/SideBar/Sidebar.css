@@ -10,11 +10,11 @@
   background-color: var(--sidebar_background);
   min-height: 90vh;
   border-top: 1px solid var(--body_background);
-  padding-top: 30px;
+  padding-top: 20px;
 }
 
 .sliders-container {
-  margin: 10% auto;
+  margin: 5% auto;
   width: fit-content;
 }
 .github-logo-container {

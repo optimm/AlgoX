@@ -2,6 +2,7 @@ import React from "react";
 import Buttons from "./Buttons/Buttons";
 import Sliders from "./Sliders/Sliders";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import ArrayInput from "./Input/ArrayInput";
 import "./Sidebar.css";
 const Sidebar = () => {
   return (
@@ -10,14 +11,14 @@ const Sidebar = () => {
         <div className="sort-btns-container">
           <Buttons />
         </div>
-        {/* <div>
+        <div>
           <ArrayInput />
-        </div> */}
+        </div>
         <div className="sliders-container">
           <Sliders />
         </div>
         <div className="github-logo-container">
-          <GitHubIcon fontSize="large" />
+          <GitHubIcon fontSize="medium" />
           <a
             href="https://github.com/optimm/AlgoX"
             target="_blank"

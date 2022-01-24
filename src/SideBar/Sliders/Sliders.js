@@ -26,7 +26,7 @@ export default function SliderSizes() {
           disabled={isDisabled}
           value={1500 - speed}
           onChange={(e) => {
-            dispatch(setSpeed(1500 - e.target.value));
+            dispatch(setSpeed(1501 - e.target.value));
           }}
         />
         <AddIcon />

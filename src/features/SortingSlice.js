@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import arrGenerate from "./arrGenerate";
 export const counterSlice = createSlice({
   name: "counter",
   initialState: {
@@ -7,6 +7,8 @@ export const counterSlice = createSlice({
     speed: 500,
     size: 15,
     isDisabled: false,
+    pivot: 3,
+    algo: 4,
   },
   reducers: {
     setSpeed: (state, action) => {
@@ -16,10 +18,14 @@ export const counterSlice = createSlice({
       };
     },
     setSize: (state, action) => {
-      return {
-        ...state,
-        size: action.payload,
-      };
+      const tempArr = arrGenerate(action.payload);
+      return state.size !== action.payload
+        ? {
+            ...state,
+            arr: tempArr,
+            size: action.payload,
+          }
+        : { ...state };
     },
     setArr: (state, action) => {
       const tempArr = [];
@@ -35,12 +41,14 @@ export const counterSlice = createSlice({
           }px, ${0}px)`;
           element.classList.remove("green");
           element.classList.remove("yellow");
+          element.classList.remove("red");
+          element.classList.remove("blue");
         }
       }
       return {
         ...state,
-        arr: tempArr,
         size: action.payload.length,
+        arr: tempArr,
       };
     },
     setIsDisabled: (state, action) => {
@@ -50,31 +58,36 @@ export const counterSlice = createSlice({
       };
     },
     arrGenerator: (state) => {
-      let tempArr = [];
-      for (let i = 0; i < state.size; i++) {
-        tempArr.push({
-          value: Math.floor(Math.random() * 70 + 10),
-          id: i + 1,
-        });
-        let element = document.querySelector(`#id${i + 1}`);
-        if (element) {
-          element.style.transform = `translate(${
-            (600 / state.size + 5) * i
-          }px, ${0}px)`;
-          element.classList.remove("green");
-          element.classList.remove("yellow");
-        }
-      }
+      let tempArr = arrGenerate(state.size);
       return {
         ...state,
         arr: tempArr,
       };
     },
+    setPivot: (state, action) => {
+      return {
+        ...state,
+        pivot: action.payload,
+      };
+    },
+    setAlgo: (state, action) => {
+      return {
+        ...state,
+        algo: action.payload,
+      };
+    },
   },
 });
 
-// Action creators are generated for eac\h case reducer function
-export const { setSpeed, setSize, setArr, setIsDisabled, arrGenerator } =
-  counterSlice.actions;
+// Action creators are generated for each case reducer function
+export const {
+  setSpeed,
+  setSize,
+  setArr,
+  setIsDisabled,
+  arrGenerator,
+  setPivot,
+  setAlgo,
+} = counterSlice.actions;
 
 export default counterSlice.reducer;
