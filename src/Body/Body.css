@@ -40,11 +40,6 @@
 .barcount {
   color: black;
 }
-.bar:hover .barcount {
-  font-size: 2rem !important;
-  color: white;
-  transform: translateY(2rem);
-}
 
 .blue {
   background-color: rgb(0, 174, 255);
