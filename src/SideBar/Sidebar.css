@@ -20,6 +20,6 @@
 .github-logo-container {
   display: flex;
   flex-direction: column;
-  margin: 10px auto;
+  margin: 20px auto;
   align-items: center;
 }
